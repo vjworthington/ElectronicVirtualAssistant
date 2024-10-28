@@ -50,12 +50,6 @@ m2.add(top)
 bottom = Label(m2, text="User Input", bg="white")
 m2.add(bottom)
 
-# Sample Text Message
-#msg = Message(frame1, text="Long text to see how it's justified",
-#    font=("helvetica", 12),
-#    aspect=150,)
-#msg.pack(pady=10, padx=10)
-
 root.mainloop()
 
 # Main function

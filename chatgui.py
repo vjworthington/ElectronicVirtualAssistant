@@ -73,7 +73,7 @@ class MainWindow(QMainWindow):
 
           l = QVBoxLayout()
 
-          self.message_input = QLineEdit("Enter message: ")
+          self.message_input = QLineEdit("")
 
           self.btn1 = QPushButton("user")
           self.btn2 = QPushButton("eva")
