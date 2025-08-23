@@ -1,7 +1,6 @@
 This is a test readme file for processing the initial installations prior installing the EVA files
 
-Installation
-#####################
+## Installation
 
 ### STEP 1: LINUX
 Linux Users: If you're already working on Linux, please skip to STEP 2
