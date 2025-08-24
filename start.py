@@ -25,7 +25,7 @@ bubble_padding = QMargins(15, 5, 15, 5)
 text_padding = QMargins(25, 15, 25, 15)
 
 # Your API: enter command below into terminal to set your OpenAI API key
-#export OPENAI_API_KEY="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"
+#export OPENAI_API_KEY="your key"
 
 # Create EVA
 client = OpenAI()
