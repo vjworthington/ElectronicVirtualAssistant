@@ -5,14 +5,14 @@ This is a test readme file for processing the initial installations prior instal
 ### STEP 1: LINUX
 Linux Users: If you're already working on Linux, please skip to STEP 2
 
-Windows Users: Linux will need to be intalled 
+Windows Users: Linux will need to be installed 
 
 ### STEP 2: INSTALL PYTORCH
 ```bash
 sudo apt update
 sudo apt install python3 idle3 -> Y
 # Create environment
-Python -m venv .env
+python3 -m venv .env
 ```
 
 ### STEP 3: INSTALL pipX
@@ -30,7 +30,7 @@ export OPENAI_API_KEY="insert your key here"
 ### STEP 5: MISC INSTALLATIONS
 ```bash
 # install PyQt5
-sudo apt install python3-pyQt 5
+sudo apt install python3-pyqt5
 pip install pyqt5
 # install python3-tk
 sudp apt install python3-tk
