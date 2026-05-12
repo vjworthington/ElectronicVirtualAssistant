@@ -1,4 +1,6 @@
 This is a test readme file for processing the initial installations prior installing the EVA files
+
+<a href="https://github.com/vjworthington/ElectronicVirtualAssistant"><img src="https://img.shields.io/badge/build_status-passing-green" alt="Build Badge"/></a>
 [![OpenAPI](https://img.shields.io/badge/OpenAPI-6BA539?logo=openapiinitiative&logoColor=white)](#)
 [![OpenRouter](https://img.shields.io/badge/OpenRouter-94A3B8?logo=openrouter&logoColor=fff)](#)
 
