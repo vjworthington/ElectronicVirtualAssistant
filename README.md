@@ -18,78 +18,39 @@
 Electronic Virtual Assistant, EVA for short, is an interactive AI assistant that integrates GPT-based conversational responses with emotion-driven visual feedback. The project dynamically categorizes conversational tone and displays corresponding emotional states through a graphical slime character to create a more immersive user experience.
 
 ### Features
--	GPT-powered conversational responses 
+-	AI-powered conversational interface 
 -	Emotion classification using keyword analysis 
--	Dynamic graphical emotion display 
+-	Dynamic emotion-based avatar rendering 
 -	Modular assistant architecture 
 -	Linux-based Python environment 
 
 ### Technology Used
 -	Python 
--	OpenAI API 
+-	OpenAI / OpenRouter API 
 -	PyQt5 
 -	Virtual Environments (venv) 
--	Linux
+-	Windows
+-	VTube Studio (Avatar)
 
 ---
 
-### Installation
-<!-- Write NEW installation up -->
+### Installation (Windows)
 
-### STEP 1: LINUX
-Linux Users: If you're already working on Linux, please skip to STEP 2
+### 1. Install Python
+Download Python 3.11+ from:
+https://www.python.org/downloads/
 
-Windows Users: Linux will need to be installed 
-
-### STEP 2: INSTALL PYTORCH
+### 2. Clone the Repository
 ```bash
-sudo apt update
-sudo apt install python3 idle3 -> Y
-# Create environment
-python3 -m venv .env
+git clone https://github.com/vjworthington/ElectronicVirtualAssistant.git
+cd ElectronicVirtualAssistant
 ```
 
-### STEP 3: INSTALL pipX
-```bash
-sudo apt install pipX -> Y
-```
+### 3. Add API Key
+Open 'apikey.txt' and paste your OpenAI or OpenRouter API key.
 
-### STEP 4: INSTALL OPENAI
-```bash
-pip install openai
-# export API
-export OPENAI_API_KEY="insert your key here"
+### 4. Run the Program
+Double click:
+```bat
+start.bat
 ```
-
-### STEP 5: MISC INSTALLATIONS
-```bash
-# install PyQt5
-sudo apt install python3-pyqt5
-pip install pyqt5
-# install python3-tk
-sudp apt install python3-tk
-# alternate to create environment
-sudo apt install virtualenv
-mkdir ~venv && cd ~/venv
-virtualenv -p python3.11.2 myenv
-  # to activate
-  source myenv/bin/activate
-  # to deactivate
-  deactivate
-```
-```bash
-# To add user as a sudoer
-su
-# enter password
-sudo visudo
-# go to "root ALL=(ALL) ALL"
-# add "username ALL=(ALL) ALL
-CRTL + X
-```
-```bash
-# other
-sudo dpkg -i /PATHINGO/file_name.deb
-```
-
-
-
