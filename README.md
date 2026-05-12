@@ -1,10 +1,40 @@
-This is a test readme file for processing the initial installations prior installing the EVA files
+<h1 align="center">EVA: Electronic Virtual Assistant</h1>
+<div align="center">
 
+<a href="https://github.com/vjworthington/ElectronicVirtualAssistant"><img src="https://img.shields.io/badge/github-repo-blue?logo=github" alt="GitHub Badge"/></a>
+<a href="https://github.com/vjworthington/ElectronicVirtualAssistant"><img src="https://img.shields.io/badge/version-1.0.2-blue" alt="Version Badge"/></a>
+<a href="https://github.com/vjworthington/ElectronicVirtualAssistant"><img src="https://img.shields.io/badge/artificial_intelligence-yes-green" alt="AI Badge"/></a>
 <a href="https://github.com/vjworthington/ElectronicVirtualAssistant"><img src="https://img.shields.io/badge/build_status-passing-green" alt="Build Badge"/></a>
-[![OpenAPI](https://img.shields.io/badge/OpenAPI-6BA539?logo=openapiinitiative&logoColor=white)](#)
-[![OpenRouter](https://img.shields.io/badge/OpenRouter-94A3B8?logo=openrouter&logoColor=fff)](#)
+<a href="https://github.com/vjworthington/ElectronicVirtualAssistant"><img src="https://img.shields.io/badge/pull_requests-0_open-yellow" alt="Pull Badge"/></a>
+<a href="https://github.com/vjworthington/ElectronicVirtualAssistant/issues"><img src="https://img.shields.io/badge/issues-0_open-yellow" alt="Issues Badge"/></a> <!-- <FIX THIS> -->
 
-## Installation
+<!-- Include a visual here -->
+
+</div>
+
+---
+
+## Overview
+Electronic Virtual Assistant, EVA for short, is an interactive AI assistant that integrates GPT-based conversational responses with emotion-driven visual feedback. The project dynamically categorizes conversational tone and displays corresponding emotional states through a graphical slime character to create a more immersive user experience.
+
+### Features
+-	GPT-powered conversational responses 
+-	Emotion classification using keyword analysis 
+-	Dynamic graphical emotion display 
+-	Modular assistant architecture 
+-	Linux-based Python environment 
+
+### Technology Used
+-	Python 
+-	OpenAI API 
+-	PyQt5 
+-	Virtual Environments (venv) 
+-	Linux
+
+---
+
+### Installation
+<!-- Write NEW installation up -->
 
 ### STEP 1: LINUX
 Linux Users: If you're already working on Linux, please skip to STEP 2
@@ -60,4 +90,6 @@ CRTL + X
 # other
 sudo dpkg -i /PATHINGO/file_name.deb
 ```
+
+
 
