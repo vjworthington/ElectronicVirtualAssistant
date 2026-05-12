@@ -1,4 +1,6 @@
 This is a test readme file for processing the initial installations prior installing the EVA files
+[![OpenAPI](https://img.shields.io/badge/OpenAPI-6BA539?logo=openapiinitiative&logoColor=white)](#)
+[![OpenRouter](https://img.shields.io/badge/OpenRouter-94A3B8?logo=openrouter&logoColor=fff)](#)
 
 ## Installation
 
