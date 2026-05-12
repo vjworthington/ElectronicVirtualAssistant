@@ -47,7 +47,7 @@ cd ElectronicVirtualAssistant
 ```
 
 ### 3. Add API Key
-Open 'apikey.txt' and paste your OpenAI or OpenRouter API key.
+Open 'config.txt' and paste your OpenAI or OpenRouter API key.
 
 ### 4. Run the Program
 Double click:
