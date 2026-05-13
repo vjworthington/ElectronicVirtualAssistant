@@ -50,12 +50,21 @@ cd ElectronicVirtualAssistant
 ```
 
 ### 3. Add API Key
-Open 'config.txt'
-Paste your OpenAI or OpenRouter API key in API_KEY=
-Paste OpenAI or OpenRouter model name in MODEL=
+- Open 'config.txt'
+- Paste your OpenAI or OpenRouter API key in API_KEY=
+- Paste OpenAI or OpenRouter model name in MODEL=
 
 
 ### 4. Run the Program
 ```bat
 start.bat
 ```
+
+## Asset Credits
+
+The animated slime avatar used in EVA was purchased from the Etsy creator below:
+
+- Creator: MelonMinty
+- Etsy Shop: https://www.etsy.com/shop/MelonMinty
+
+All rights to the artwork remain with the original creator.
