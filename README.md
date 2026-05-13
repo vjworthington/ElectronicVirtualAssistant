@@ -56,3 +56,6 @@ Paste OpenAI or OpenRouter model name in MODEL=
 
 
 ### 4. Run the Program
+```bat
+start.bat
+```
