@@ -2,7 +2,7 @@
 <div align="center">
 
 <a href="https://github.com/vjworthington/ElectronicVirtualAssistant"><img src="https://img.shields.io/badge/github-repo-blue?logo=github" alt="GitHub Badge"/></a>
-<a href="https://github.com/vjworthington/ElectronicVirtualAssistant"><img src="https://img.shields.io/badge/version-1.0.2-blue" alt="Version Badge"/></a>
+<a href="https://github.com/vjworthington/ElectronicVirtualAssistant"><img src="https://img.shields.io/badge/version-1.0.3-blue" alt="Version Badge"/></a>
 <a href="https://github.com/vjworthington/ElectronicVirtualAssistant"><img src="https://img.shields.io/badge/artificial_intelligence-yes-green" alt="AI Badge"/></a>
 <a href="https://github.com/vjworthington/ElectronicVirtualAssistant"><img src="https://img.shields.io/badge/build_status-passing-green" alt="Build Badge"/></a>
 <a href="https://github.com/vjworthington/ElectronicVirtualAssistant"><img src="https://img.shields.io/badge/pull_requests-0_open-yellow" alt="Pull Badge"/></a>
@@ -11,6 +11,11 @@
 <!-- Include a visual here -->
 
 </div>
+
+<div align="center">
+<img src="assets/EVAscreenshot.png" width="500" align="center" alt="Screenshot">
+</div>
+
 
 ---
 
@@ -47,7 +52,10 @@ cd ElectronicVirtualAssistant
 ```
 
 ### 3. Add API Key
-Open 'config.txt' and paste your OpenAI or OpenRouter API key.
+Open 'config.txt'
+Paste your OpenAI or OpenRouter API key in API_KEY=
+Paste OpenAI or OpenRouter model name in MODEL=
+
 
 ### 4. Run the Program
 Double click:
