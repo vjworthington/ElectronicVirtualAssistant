@@ -26,11 +26,6 @@ except Exception as e:
     print("Error loading API key:", e)
     exit()
 
-# Your API: enter command below into terminal
-# to set your OpenAI API key
-# NEW OPENROUTER.AI KEY
-# export OPENAI_API_KEY="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"
-
 # Create EVA
 def EVA(prompt):
     try:

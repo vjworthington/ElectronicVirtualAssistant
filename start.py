@@ -26,21 +26,7 @@ bubble_colors = {USER_ME: user_color, USER_EVA: eva_color}
 bubble_padding = QMargins(15, 5, 15, 5)
 text_padding = QMargins(25, 15, 25, 15)
 
-# Your API: enter command below into terminal to set your OpenAI API key
-#export OPENAI_API_KEY="your key"
-
-# Create EVA
-# OLD - client = OpenAI()
-# read API key from file
 try:
-    #with open("config.txt", "r") as file:
-    #    api_key = file.read().strip()
-
-    #client = OpenAI(
-    #api_key=api_key,
-    #base_url="https://openrouter.ai/api/v1"
-    #)
-
     def load_config():
         config = {}
 
