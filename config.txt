@@ -1,2 +1,2 @@
 MODEL=nvidia/nemotron-3-super-120b-a12b:free
-API_KEY=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
+API_KEY=ENTER_KEY_HERE
