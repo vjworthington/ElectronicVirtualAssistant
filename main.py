@@ -7,17 +7,35 @@
 from openai import OpenAI
 from tkinter import *
 
-client = OpenAI()
+# OLD - client = OpenAI()
+# read API key from file
+try:
+    with open("config.txt", "r") as file:
+        api_key = file.read().strip()
+
+    client = OpenAI(
+    api_key=api_key,
+    base_url="https://openrouter.ai/api/v1"
+    )
+
+except FileNotFoundError:
+    print("config.txt not found")
+    exit()
+
+except Exception as e:
+    print("Error loading API key:", e)
+    exit()
 
 # Your API: enter command below into terminal
 # to set your OpenAI API key
-#export OPENAI_API_KEY="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"
+# NEW OPENROUTER.AI KEY
+# export OPENAI_API_KEY="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"
 
 # Create EVA
 def EVA(prompt):
     try:
         response = client.chat.completions.create(
-            model="gpt-3.5-turbo",
+            model="nvidia/nemotron-3-super-120b-a12b:free",
             messages=[
                 {"role": "system", "content": "Helpful AI"},
                 {"role": "user", "content": prompt}

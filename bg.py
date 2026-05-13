@@ -19,11 +19,6 @@ class GUI_main(object):
         # embed label to main window
         mw.setCentralWidget(self.centralwidget)
 
-        # integrate QMovie to label and start Gif
-        self.movie = QMovie("/home/hexidigit/background.gif")
-        self.label.setMovie(self.movie)
-        self.movie.start()
-
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
     window = QtWidgets.QMainWindow()

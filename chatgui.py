@@ -7,10 +7,10 @@ import sys
 USER_ME = 0
 USER_EVA = 1
 
-user_color = QtGui.QColor(144,202,249) #90caf9
-user_color.setAlpha(128)
-eva_color = QtGui.QColor(164, 214, 167) #a5d6a7
+eva_color = QtGui.QColor(144,202,249) #90caf9
 eva_color.setAlpha(128)
+user_color = QtGui.QColor(164, 214, 167) #a5d6a7
+user_color.setAlpha(128)
 
 bubble_colors = {USER_ME: user_color, USER_EVA: eva_color}
 bubble_padding = QMargins(15, 5, 15, 5)

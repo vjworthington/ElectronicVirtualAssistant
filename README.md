@@ -8,8 +8,6 @@
 <a href="https://github.com/vjworthington/ElectronicVirtualAssistant"><img src="https://img.shields.io/badge/pull_requests-0_open-yellow" alt="Pull Badge"/></a>
 <a href="https://github.com/vjworthington/ElectronicVirtualAssistant/issues"><img src="https://img.shields.io/badge/issues-0_open-yellow" alt="Issues Badge"/></a> <!-- <FIX THIS> -->
 
-<!-- Include a visual here -->
-
 </div>
 
 <div align="center">
@@ -58,7 +56,3 @@ Paste OpenAI or OpenRouter model name in MODEL=
 
 
 ### 4. Run the Program
-Double click:
-```bat
-start.bat
-```
