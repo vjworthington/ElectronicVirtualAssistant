@@ -9,8 +9,9 @@ from PyQt5 import QtGui, QtCore, QtWidgets
 from PyQt5.QtCore import QAbstractListModel, QMargins, QPoint, QSize, Qt
 from PyQt5.QtGui import QColor, QFontMetrics, QMovie, QPixmap
 from PyQt5.QtWidgets import *
+from emote import get_emote
 from paths import BACKGROUND_GIF
-from paths import AVATAR_GIF
+from paths import AVATAR_GIF, IDLE_GIF
 import time
 import sys
 
@@ -42,11 +43,11 @@ try:
 
         return config
 
-
     config = load_config()
 
     API_KEY = config["API_KEY"]
     MODEL_NAME = config["MODEL"]
+    TOKENS = config["TOKENS"]
     
     client = OpenAI(
     api_key=API_KEY,
@@ -61,6 +62,7 @@ except Exception as e:
     print("Error loading API key:", e)
     exit()
 
+
 def EVA(prompt):
     try:
         response = client.chat.completions.create(
@@ -69,13 +71,14 @@ def EVA(prompt):
                 {"role": "system", "content": "Helpful AI"},
                 {"role": "user", "content": prompt}
             ],
-            max_tokens=300
+            max_tokens=TOKENS
         )
         return response.choices[0].message.content.strip()
 
     except Exception as e:
         print(f"An error occured: {str(e)}")
         return "Error. Please try again."
+
 
 # draw messages
 class MessageDelegate(QStyledItemDelegate):
@@ -128,7 +131,7 @@ class MessageModel(QAbstractListModel):
             self.messages.append((who,text))
             self.layoutChanged.emit()
 
-# Move API QThread to background to prevent Gif/Movie freezing
+# Move API QThread to background to prevent Gif/QMovie freezing
 class Worker(QtCore.QThread):
     finished = QtCore.pyqtSignal(str)
 
@@ -144,6 +147,7 @@ class MainWindow(QMainWindow):
     def __init__(self):
           super(MainWindow, self).__init__()
           self.initUI()
+          self.setWindowTitle("EVA")
 
           # button and font colors
           self.message_input = QLineEdit("")
@@ -159,13 +163,9 @@ class MainWindow(QMainWindow):
           self.btn1.pressed.connect(self.message_to)
           self.btn1.pressed.connect(self.message_from)
 
-          # add avatar
+          # add avatar - Default setting is idle, will change based on response
           self.avatar = QLabel(self)
-          # movie = QtGui.QMovie('C:/Users/hexidigit/OneDrive/Desktop/shiny-slime-girl-allu.gif')
-          movie = QtGui.QMovie(AVATAR_GIF)
-          movie.setScaledSize(QSize(269, 200))
-          self.avatar.setMovie(movie)
-          movie.start()
+          self.set_avatar_gif(IDLE_GIF)
 
           # add widgets
           # user_input / send
@@ -174,7 +174,6 @@ class MainWindow(QMainWindow):
           user_input_box.addWidget(self.message_input)
           self.message_input.setStyleSheet("""color: white; background-color: rgba(0, 0, 0, 0);""")
           user_input_box.addWidget(self.btn1)
-          user_input_box.addWidget(self.btn1.setFixedWidth(50))
           bottom_widget.setLayout(user_input_box)
 
           # Chat window and user input / send
@@ -202,8 +201,19 @@ class MainWindow(QMainWindow):
         self.worker.finished.connect(self.display_response)
         self.worker.start()
 
+    # display response and set avatar gif based on response
     def display_response(self, response):
         self.model.add_message(USER_EVA, response)
+        emote_gif = get_emote(response)
+        self.set_avatar_gif(emote_gif)
+        QtCore.QTimer.singleShot(3000, lambda: self.set_avatar_gif(IDLE_GIF))
+
+    # set avatar gif based on response
+    def set_avatar_gif(self, gif_path):
+        self.avatar_movie = QtGui.QMovie(gif_path)
+        self.avatar_movie.setScaledSize(QSize(269, 200))
+        self.avatar.setMovie(self.avatar_movie)
+        self.avatar_movie.start()
 
     # animated background
     def initUI(self):
