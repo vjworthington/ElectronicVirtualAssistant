@@ -59,6 +59,12 @@ cd ElectronicVirtualAssistant
 ```bat
 start.bat
 ```
+---
+
+### Application Sequence Diagram
+<div align="center">
+<img src="assets/sequence_diagram.png" width="500" align="center" alt="Sequence Diagram">
+</div>
 
 ## Asset Credits
 
