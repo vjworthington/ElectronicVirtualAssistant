@@ -7,7 +7,7 @@
 [![Release](https://img.shields.io/github/v/release/vjworthington/ElectronicVirtualAssistant?label=release&color=blue)](https://github.com/vjworthington/ElectronicVirtualAssistant/releases/latest)
 [![CI](https://github.com/vjworthington/ElectronicVirtualAssistant/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/vjworthington/ElectronicVirtualAssistant/actions/workflows/ci.yml)[![Pull Requests](https://img.shields.io/github/issues-pr/vjworthington/ElectronicVirtualAssistant)](https://github.com/vjworthington/ElectronicVirtualAssistant/pulls)
 [![Issues](https://img.shields.io/github/issues/vjworthington/ElectronicVirtualAssistant)](https://github.com/vjworthington/ElectronicVirtualAssistant/issues)
-
+[![Docker](https://img.shields.io/badge/docker-ghcr.io%2Fvjworthington%2Felectronic--virtual--assistant-blue?logo=docker)](https://ghcr.io/vjworthington/electronic-virtual-assistant)
 
 
 [![Stars](https://img.shields.io/github/stars/vjworthington/ElectronicVirtualAssistant?style=social)](https://github.com/vjworthington/ElectronicVirtualAssistant/stargazers)
