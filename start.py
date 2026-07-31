@@ -4,20 +4,28 @@
 #            E V A             #
 ################################
 
-from openai import OpenAI
-from PyQt5 import QtGui, QtCore, QtWidgets
-from PyQt5.QtCore import QAbstractListModel, QMargins, QPoint, QSize, Qt
-from PyQt5.QtGui import QColor, QFontMetrics, QMovie, QPixmap
-from PyQt5.QtWidgets import (
-    QApplication, QMainWindow, QVBoxLayout, QHBoxLayout,
-    QLineEdit, QPushButton, QListView, QWidget,
-    QStyledItemDelegate, QLabel
-)
-from emote import get_emote
-from paths import BACKGROUND_GIF
-from paths import AVATAR_GIF, IDLE_GIF
-import time
+import logging
 import sys
+
+from openai import OpenAI
+from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtCore import QAbstractListModel, QMargins, QPoint, QSize, Qt
+from PyQt5.QtGui import QColor, QMovie
+from PyQt5.QtWidgets import (
+    QApplication,
+    QHBoxLayout,
+    QLabel,
+    QLineEdit,
+    QListView,
+    QMainWindow,
+    QPushButton,
+    QStyledItemDelegate,
+    QVBoxLayout,
+    QWidget,
+)
+
+from emote import get_emote
+from paths import BACKGROUND_GIF, IDLE_GIF
 
 USER_ME = 0
 USER_EVA = 1
@@ -35,7 +43,7 @@ try:
     def load_config():
         config = {}
 
-        with open("config.txt", "r") as file:
+        with open("config.txt") as file:
             for line in file:
                 line = line.strip()
 
@@ -59,11 +67,11 @@ try:
     )
 
 except FileNotFoundError:
-    print("config.txt not found")
+    logging.error("config.txt not found")
     exit()
 
 except Exception as e:
-    print("Error loading API key:", e)
+    logging.error("Error loading API key: ", e)
     exit()
 
 
@@ -80,7 +88,7 @@ def EVA(prompt):
         return response.choices[0].message.content.strip()
 
     except Exception as e:
-        print(f"An error occured: {str(e)}")
+        logging.error(f"An error occured: {str(e)}")
         return "Error. Please try again."
 
 
@@ -120,7 +128,7 @@ class MessageDelegate(QStyledItemDelegate):
     
 class MessageModel(QAbstractListModel):
     def __init__(self, *args, **kwargs):
-        super(MessageModel, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         self.messages = []
 
     def data(self, index, role):
@@ -149,7 +157,7 @@ class Worker(QtCore.QThread):
 
 class MainWindow(QMainWindow):
     def __init__(self):
-          super(MainWindow, self).__init__()
+          super().__init__()
           self.initUI()
           self.setWindowTitle("EVA")
 

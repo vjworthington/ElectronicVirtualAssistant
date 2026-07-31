@@ -1,11 +1,18 @@
-from PyQt5.QtCore import QAbstractListModel, QMargins, QPoint, QSize, Qt
-from PyQt5.QtGui import QColor, QFontMetrics
-from PyQt5.QtWidgets import (
-    QApplication, QMainWindow, QVBoxLayout, QLineEdit,
-    QPushButton, QListView, QWidget, QStyledItemDelegate
-)
-from PyQt5 import QtGui
 import sys
+
+from PyQt5 import QtGui
+from PyQt5.QtCore import QAbstractListModel, QMargins, QPoint, Qt
+from PyQt5.QtGui import QColor
+from PyQt5.QtWidgets import (
+    QApplication,
+    QLineEdit,
+    QListView,
+    QMainWindow,
+    QPushButton,
+    QStyledItemDelegate,
+    QVBoxLayout,
+    QWidget,
+)
 
 USER_ME = 0
 USER_EVA = 1
@@ -55,7 +62,7 @@ class MessageDelegate(QStyledItemDelegate):
     
 class MessageModel(QAbstractListModel):
     def __init__(self, *args, **kwargs):
-        super(MessageModel, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         self.messages = []
 
     def data(self, index, role):
@@ -72,7 +79,7 @@ class MessageModel(QAbstractListModel):
 
 class MainWindow(QMainWindow):
     def __init__(self):
-          super(MainWindow, self).__init__()
+          super().__init__()
 
           layout = QVBoxLayout()
 
@@ -96,7 +103,7 @@ class MainWindow(QMainWindow):
           layout.addWidget(self.btn2)
 
           self.w = QWidget()
-          self.w.setLayout(l)
+          self.w.setLayout(layout)
           self.setCentralWidget(self.w)
     
     def message_to(self):

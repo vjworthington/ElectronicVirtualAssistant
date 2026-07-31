@@ -1,8 +1,9 @@
-from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtGui import QMovie
 import sys
 
-class GUI_main(object):
+from PyQt5 import QtCore, QtWidgets
+
+
+class GUI_main:
     def setupGUI(self, mw):
         mw.setObjectName("MainWindow")
         mw.resize(645, 370)

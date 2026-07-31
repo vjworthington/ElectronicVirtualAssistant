@@ -1,12 +1,4 @@
-from openai import OpenAI
-from paths import AVATAR_GIF
-from paths import HAPPY_GIF
-from paths import SAD_GIF
-from paths import ANGRY_GIF
-from paths import SURPRISE_GIF
-from paths import LOVE_GIF
-from paths import IDLE_GIF
-import sys
+from paths import ANGRY_GIF, HAPPY_GIF, IDLE_GIF, LOVE_GIF, SAD_GIF, SURPRISE_GIF
 
 
 # Link EVA responses to expressions

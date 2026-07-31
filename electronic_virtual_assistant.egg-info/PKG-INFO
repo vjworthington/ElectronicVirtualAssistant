@@ -1,0 +1,100 @@
+Metadata-Version: 2.4
+Name: electronic-virtual-assistant
+Version: 1.0.0
+Summary: An AI-powered desktop assistant built with Python and PyQt5.
+License: MIT
+Project-URL: Homepage, https://github.com/vjworthington/ElectronicVirtualAssistant
+Project-URL: Repository, https://github.com/vjworthington/ElectronicVirtualAssistant
+Keywords: ai,assistant,pyqt5,openrouter,desktop,avatar
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: X11 Applications :: Qt
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+Requires-Dist: PyQt5>=5.15
+Requires-Dist: openai>=1.0.0
+Requires-Dist: python-dotenv>=1.0.0
+Requires-Dist: requests>=2.32.0
+Provides-Extra: dev
+Requires-Dist: pytest>=7.4; extra == "dev"
+Requires-Dist: pytest-cov>=4.1; extra == "dev"
+Requires-Dist: pytest-asyncio>=0.23; extra == "dev"
+Requires-Dist: ruff>=0.4; extra == "dev"
+Requires-Dist: black>=24.0; extra == "dev"
+Requires-Dist: mypy>=1.8; extra == "dev"
+Requires-Dist: towncrier>=23.0; extra == "dev"
+
+<h1 align="center">EVA: Electronic Virtual Assistant</h1>
+<div align="center">
+
+</div>
+
+<div align="center">
+<img src="assets/EVAscreenshot.png" width="500" align="center" alt="Screenshot">
+</div>
+
+
+---
+
+## Overview
+Electronic Virtual Assistant, EVA for short, is an interactive AI assistant that integrates GPT-based conversational responses with emotion-driven visual feedback. The project dynamically categorizes conversational tone and displays corresponding emotional states through a graphical slime character to create a more immersive user experience.
+
+### Features
+-	AI-powered conversational interface 
+-	Emotion classification using keyword analysis 
+-	Dynamic emotion-based avatar rendering 
+-	Modular assistant architecture 
+-	Linux-based Python environment 
+
+### Technology Used
+-	Python 
+-	OpenAI / OpenRouter API 
+-	PyQt5 
+-	Virtual Environments (venv) 
+-	Windows
+-	VTube Studio (Avatar)
+
+---
+
+### Installation (Windows)
+
+### 1. Install Python
+Download Python 3.11+ from:
+https://www.python.org/downloads/
+
+### 2. Clone the Repository
+```bash
+git clone https://github.com/vjworthington/ElectronicVirtualAssistant.git
+cd ElectronicVirtualAssistant
+```
+
+### 3. Add API Key
+- Open 'config.txt'
+- Paste your OpenAI or OpenRouter API key in API_KEY=
+- Paste OpenAI or OpenRouter model name in MODEL=
+
+
+### 4. Run the Program
+```bat
+start.bat
+```
+---
+
+### Application Sequence Diagram
+<div align="center">
+<img src="assets/sequence_diagram.png" width="500" align="center" alt="Sequence Diagram">
+</div>
+
+## Asset Credits
+
+The animated slime avatar used in EVA was purchased from the Etsy creator below:
+
+- Creator: MelonMinty
+- Etsy Shop: https://www.etsy.com/shop/MelonMinty
+
+All rights to the artwork remain with the original creator.
