@@ -1,5 +1,6 @@
 from emote import get_emote
 
+
 class TestEmoteClassification:
     def test_happy_keywords(self):
         assert get_emote("I'm so happy this works!") == "happy"
