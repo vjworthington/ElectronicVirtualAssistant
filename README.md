@@ -1,6 +1,8 @@
 <h1 align="center">EVA: Electronic Virtual Assistant</h1>
 <div align="center">
 
+  [![CI](https://github.com/vjworthington/ElectronicVirtualAssistant/actions/workflows/ci.yml/badge.svg)](https://github.com/vjworthington/ElectronicVirtualAssistant/actions/workflows/ci.yml)
+
 </div>
 
 <div align="center">
