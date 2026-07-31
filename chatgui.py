@@ -17,14 +17,15 @@ from PyQt5.QtWidgets import (
 USER_ME = 0
 USER_EVA = 1
 
-eva_color = QtGui.QColor(144,202,249) #90caf9
+eva_color = QtGui.QColor(144, 202, 249)  # 90caf9
 eva_color.setAlpha(128)
-user_color = QtGui.QColor(164, 214, 167) #a5d6a7
+user_color = QtGui.QColor(164, 214, 167)  # a5d6a7
 user_color.setAlpha(128)
 
 bubble_colors = {USER_ME: user_color, USER_EVA: eva_color}
 bubble_padding = QMargins(15, 5, 15, 5)
 text_padding = QMargins(25, 15, 25, 15)
+
 
 # draw messages
 class MessageDelegate(QStyledItemDelegate):
@@ -59,7 +60,8 @@ class MessageDelegate(QStyledItemDelegate):
         rect = metrics.boundingRect(rect, Qt.TextWordWrap, text)
         rect = rect.marginsAdded(text_padding)
         return rect.size()
-    
+
+
 class MessageModel(QAbstractListModel):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -68,50 +70,51 @@ class MessageModel(QAbstractListModel):
     def data(self, index, role):
         if role == Qt.DisplayRole:
             return self.messages[index.row()]
-    
+
     def rowCount(self, index):
         return len(self.messages)
 
     def add_message(self, who, text):
         if text:
-            self.messages.append((who,text))
+            self.messages.append((who, text))
             self.layoutChanged.emit()
+
 
 class MainWindow(QMainWindow):
     def __init__(self):
-          super().__init__()
+        super().__init__()
 
-          layout = QVBoxLayout()
+        layout = QVBoxLayout()
 
-          self.message_input = QLineEdit("")
+        self.message_input = QLineEdit("")
 
-          self.btn1 = QPushButton("user")
-          self.btn2 = QPushButton("eva")
+        self.btn1 = QPushButton("user")
+        self.btn2 = QPushButton("eva")
 
-          self.messages = QListView()
-          self.messages.setItemDelegate(MessageDelegate())
+        self.messages = QListView()
+        self.messages.setItemDelegate(MessageDelegate())
 
-          self.model = MessageModel()
-          self.messages.setModel(self.model)
+        self.model = MessageModel()
+        self.messages.setModel(self.model)
 
-          self.btn1.pressed.connect(self.message_to)
-          self.btn2.pressed.connect(self.message_from)
+        self.btn1.pressed.connect(self.message_to)
+        self.btn2.pressed.connect(self.message_from)
 
-          layout.addWidget(self.messages)
-          layout.addWidget(self.message_input)
-          layout.addWidget(self.btn1)
-          layout.addWidget(self.btn2)
+        layout.addWidget(self.messages)
+        layout.addWidget(self.message_input)
+        layout.addWidget(self.btn1)
+        layout.addWidget(self.btn2)
 
-          self.w = QWidget()
-          self.w.setLayout(layout)
-          self.setCentralWidget(self.w)
-    
+        self.w = QWidget()
+        self.w.setLayout(layout)
+        self.setCentralWidget(self.w)
+
     def message_to(self):
         self.model.add_message(USER_ME, self.message_input.text())
 
-
     def message_from(self):
         self.model.add_message(USER_EVA, self.message_input.text())
+
 
 app = QApplication(sys.argv)
 window = MainWindow()

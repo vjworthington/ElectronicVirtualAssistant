@@ -30,9 +30,9 @@ from paths import BACKGROUND_GIF, IDLE_GIF
 USER_ME = 0
 USER_EVA = 1
 
-eva_color = QtGui.QColor(144,202,249) #90caf9
+eva_color = QtGui.QColor(144, 202, 249)  # 90caf9
 eva_color.setAlpha(128)
-user_color = QtGui.QColor(164, 214, 167) #a5d6a7
+user_color = QtGui.QColor(164, 214, 167)  # a5d6a7
 user_color.setAlpha(128)
 
 bubble_colors = {USER_ME: user_color, USER_EVA: eva_color}
@@ -40,6 +40,7 @@ bubble_padding = QMargins(15, 5, 15, 5)
 text_padding = QMargins(25, 15, 25, 15)
 
 try:
+
     def load_config():
         config = {}
 
@@ -60,11 +61,8 @@ try:
     API_KEY = config["API_KEY"]
     MODEL_NAME = config["MODEL"]
     TOKENS = config["TOKENS"]
-    
-    client = OpenAI(
-    api_key=API_KEY,
-    base_url="https://openrouter.ai/api/v1"
-    )
+
+    client = OpenAI(api_key=API_KEY, base_url="https://openrouter.ai/api/v1")
 
 except FileNotFoundError:
     logging.error("config.txt not found")
@@ -81,9 +79,9 @@ def EVA(prompt):
             model=MODEL_NAME,
             messages=[
                 {"role": "system", "content": "Helpful AI"},
-                {"role": "user", "content": prompt}
+                {"role": "user", "content": prompt},
             ],
-            max_tokens=TOKENS
+            max_tokens=TOKENS,
         )
         return response.choices[0].message.content.strip()
 
@@ -125,7 +123,8 @@ class MessageDelegate(QStyledItemDelegate):
         rect = metrics.boundingRect(rect, Qt.TextWordWrap, text)
         rect = rect.marginsAdded(text_padding)
         return rect.size()
-    
+
+
 class MessageModel(QAbstractListModel):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -134,14 +133,15 @@ class MessageModel(QAbstractListModel):
     def data(self, index, role):
         if role == Qt.DisplayRole:
             return self.messages[index.row()]
-    
+
     def rowCount(self, index):
         return len(self.messages)
 
     def add_message(self, who, text):
         if text:
-            self.messages.append((who,text))
+            self.messages.append((who, text))
             self.layoutChanged.emit()
+
 
 # Move API QThread to background to prevent Gif/QMovie freezing
 class Worker(QtCore.QThread):
@@ -155,55 +155,56 @@ class Worker(QtCore.QThread):
         response = EVA(self.prompt)
         self.finished.emit(response)
 
+
 class MainWindow(QMainWindow):
     def __init__(self):
-          super().__init__()
-          self.initUI()
-          self.setWindowTitle("EVA")
+        super().__init__()
+        self.initUI()
+        self.setWindowTitle("EVA")
 
-          # button and font colors
-          self.message_input = QLineEdit("")
-          self.btn1 = QPushButton("SEND")
-          self.btn1.setStyleSheet("color: white;")
+        # button and font colors
+        self.message_input = QLineEdit("")
+        self.btn1 = QPushButton("SEND")
+        self.btn1.setStyleSheet("color: white;")
 
-          self.messages = QListView()
-          self.messages.setItemDelegate(MessageDelegate())
+        self.messages = QListView()
+        self.messages.setItemDelegate(MessageDelegate())
 
-          self.model = MessageModel()
-          self.messages.setModel(self.model)
+        self.model = MessageModel()
+        self.messages.setModel(self.model)
 
-          self.btn1.pressed.connect(self.message_to)
-          self.btn1.pressed.connect(self.message_from)
+        self.btn1.pressed.connect(self.message_to)
+        self.btn1.pressed.connect(self.message_from)
 
-          # add avatar - Default setting is idle, will change based on response
-          self.avatar = QLabel(self)
-          self.set_avatar_gif(IDLE_GIF)
+        # add avatar - Default setting is idle, will change based on response
+        self.avatar = QLabel(self)
+        self.set_avatar_gif(IDLE_GIF)
 
-          # add widgets
-          # user_input / send
-          user_input_box = QHBoxLayout()
-          bottom_widget = QWidget()
-          user_input_box.addWidget(self.message_input)
-          self.message_input.setStyleSheet("""color: white; background-color: rgba(0, 0, 0, 0);""")
-          user_input_box.addWidget(self.btn1)
-          bottom_widget.setLayout(user_input_box)
+        # add widgets
+        # user_input / send
+        user_input_box = QHBoxLayout()
+        bottom_widget = QWidget()
+        user_input_box.addWidget(self.message_input)
+        self.message_input.setStyleSheet("""color: white; background-color: rgba(0, 0, 0, 0);""")
+        user_input_box.addWidget(self.btn1)
+        bottom_widget.setLayout(user_input_box)
 
-          # Chat window and user input / send
-          vbox = QVBoxLayout()
-          chat_widget = QWidget()
-          vbox.addWidget(self.messages)
-          self.messages.setStyleSheet("border :0px; background-color: rgba(0, 0, 0, 0)")
-          vbox.addWidget(bottom_widget)
-          chat_widget.setLayout(vbox)
+        # Chat window and user input / send
+        vbox = QVBoxLayout()
+        chat_widget = QWidget()
+        vbox.addWidget(self.messages)
+        self.messages.setStyleSheet("border :0px; background-color: rgba(0, 0, 0, 0)")
+        vbox.addWidget(bottom_widget)
+        chat_widget.setLayout(vbox)
 
-          # avatar and chat
-          hbox = QHBoxLayout()
-          hbox.addWidget(self.avatar)
-          hbox.addWidget(chat_widget)
+        # avatar and chat
+        hbox = QHBoxLayout()
+        hbox.addWidget(self.avatar)
+        hbox.addWidget(chat_widget)
 
-          self.w = QWidget()
-          self.w.setLayout(hbox)
-          self.setCentralWidget(self.w)
+        self.w = QWidget()
+        self.w.setLayout(hbox)
+        self.setCentralWidget(self.w)
 
     def message_to(self):
         self.model.add_message(USER_ME, self.message_input.text())
@@ -237,6 +238,7 @@ class MainWindow(QMainWindow):
         self.movie.start()
         self.show()
 
+
 # Main
 def main():
     app = QtWidgets.QApplication(sys.argv)
@@ -245,6 +247,7 @@ def main():
     window.resize(645, 370)
     window.show()
     app.exec_()
+
 
 if __name__ == "__main__":
     main()

@@ -20,6 +20,7 @@ class GUI_main:
         # embed label to main window
         mw.setCentralWidget(self.centralwidget)
 
+
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
     window = QtWidgets.QMainWindow()
