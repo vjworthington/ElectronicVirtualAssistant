@@ -1,13 +1,6 @@
 <h1 align="center">EVA: Electronic Virtual Assistant</h1>
 <div align="center">
 
-<a href="https://github.com/vjworthington/ElectronicVirtualAssistant"><img src="https://img.shields.io/badge/github-repo-blue?logo=github" alt="GitHub Badge"/></a>
-<a href="https://github.com/vjworthington/ElectronicVirtualAssistant"><img src="https://img.shields.io/badge/version-1.0.3-blue" alt="Version Badge"/></a>
-<a href="https://github.com/vjworthington/ElectronicVirtualAssistant"><img src="https://img.shields.io/badge/artificial_intelligence-yes-green" alt="AI Badge"/></a>
-<a href="https://github.com/vjworthington/ElectronicVirtualAssistant"><img src="https://img.shields.io/badge/build_status-passing-green" alt="Build Badge"/></a>
-<a href="https://github.com/vjworthington/ElectronicVirtualAssistant"><img src="https://img.shields.io/badge/pull_requests-0_open-yellow" alt="Pull Badge"/></a>
-<a href="https://github.com/vjworthington/ElectronicVirtualAssistant/issues"><img src="https://img.shields.io/badge/issues-0_open-yellow" alt="Issues Badge"/></a> <!-- <FIX THIS> -->
-
 </div>
 
 <div align="center">
