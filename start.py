@@ -8,7 +8,11 @@ from openai import OpenAI
 from PyQt5 import QtGui, QtCore, QtWidgets
 from PyQt5.QtCore import QAbstractListModel, QMargins, QPoint, QSize, Qt
 from PyQt5.QtGui import QColor, QFontMetrics, QMovie, QPixmap
-from PyQt5.QtWidgets import *
+from PyQt5.QtWidgets import (
+    QApplication, QMainWindow, QVBoxLayout, QHBoxLayout,
+    QLineEdit, QPushButton, QListView, QWidget,
+    QStyledItemDelegate, QLabel
+)
 from emote import get_emote
 from paths import BACKGROUND_GIF
 from paths import AVATAR_GIF, IDLE_GIF
