@@ -1,6 +1,5 @@
-import pytest
-
 from emote import get_emote  # adjust import to your structure
+
 
 class TestEmoteClassification:
     def test_happy_keywords(self):
