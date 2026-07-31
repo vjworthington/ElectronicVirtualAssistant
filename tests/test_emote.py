@@ -1,5 +1,4 @@
-from emote import get_emote  # adjust import to your structure
-
+from emote import get_emote
 
 class TestEmoteClassification:
     def test_happy_keywords(self):
