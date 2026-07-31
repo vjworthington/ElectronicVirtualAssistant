@@ -1,7 +1,19 @@
 <h1 align="center">EVA: Electronic Virtual Assistant</h1>
+
 <div align="center">
 
-  [![CI](https://github.com/vjworthington/ElectronicVirtualAssistant/actions/workflows/ci.yml/badge.svg)](https://github.com/vjworthington/ElectronicVirtualAssistant/actions/workflows/ci.yml)
+[![Python](https://img.shields.io/badge/python-3.11%2B-blue)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Release](https://img.shields.io/github/v/release/vjworthington/ElectronicVirtualAssistant?label=release&color=blue)](https://github.com/vjworthington/ElectronicVirtualAssistant/releases/latest)
+[![CI](https://github.com/vjworthington/ElectronicVirtualAssistant/actions/workflows/ci.yml/badge.svg)](https://github.com/vjworthington/ElectronicVirtualAssistant/actions/workflows/ci.yml)
+[![Pull Requests](https://img.shields.io/github/issues-pr/vjworthington/ElectronicVirtualAssistant)](https://github.com/vjworthington/ElectronicVirtualAssistant/pulls)
+[![Issues](https://img.shields.io/github/issues/vjworthington/ElectronicVirtualAssistant)](https://github.com/vjworthington/ElectronicVirtualAssistant/issues)
+
+
+
+[![Stars](https://img.shields.io/github/stars/vjworthington/ElectronicVirtualAssistant?style=social)](https://github.com/vjworthington/ElectronicVirtualAssistant/stargazers)
+[![Watchers](https://img.shields.io/github/watchers/vjworthington/ElectronicVirtualAssistant?style=social)](https://github.com/vjworthington/ElectronicVirtualAssistant/watchers)
+[![Forks](https://img.shields.io/github/forks/vjworthington/ElectronicVirtualAssistant?style=social)](https://github.com/vjworthington/ElectronicVirtualAssistant/network/members)
 
 </div>
 
