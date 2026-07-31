@@ -67,7 +67,6 @@ asyncio_mode = "auto"
 testpaths = ["tests"]
 python_files = ["test_*.py"]
 python_functions = ["test_*"]
-addopts = "--cov=eva --cov-report=term-missing --cov-report=xml"
-
+addopts = "--cov=. --cov-report=term-missing --cov-report=xml"
 
 
