@@ -5,6 +5,17 @@ description = "An AI-powered desktop assistant built with Python and PyQt5."
 readme = "README.md"
 requires-python = ">=3.11"
 license = { text = "MIT" }
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: X11 Applications :: Qt",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+keywords = ["ai", "assistant", "pyqt5", "openrouter", "desktop", "avatar"]
 
 dependencies = [
     "PyQt5>=5.15",
@@ -56,17 +67,5 @@ python_files = ["test_*.py"]
 python_functions = ["test_*"]
 addopts = "--cov=eva --cov-report=term-missing --cov-report=xml"
 
-[project.scripts]
-eva = "eva.__main__:main"
 
-classifiers = [
-    "Development Status :: 3 - Alpha",
-    "Environment :: X11 Applications :: Qt",
-    "Intended Audience :: End Users/Desktop",
-    "License :: OSI Approved :: MIT License",
-    "Operating System :: Microsoft :: Windows",
-    "Operating System :: POSIX :: Linux",
-    "Programming Language :: Python :: 3.11",
-    "Topic :: Scientific/Engineering :: Artificial Intelligence",
-]
-keywords = ["ai", "assistant", "pyqt5", "openrouter", "desktop", "avatar"]
+
