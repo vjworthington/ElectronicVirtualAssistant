@@ -1,0 +1,76 @@
+[project]
+name = "electronic-virtual-assistant"
+version = "1.0.0"
+description = "An AI-powered desktop assistant built with Python and PyQt5."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+
+authors = [
+    { name = "Victoria Worthington", email = "worthington.vj@gmail.com" }
+]
+
+dependencies = [
+    "PyQt5>=5.15",
+    "openai>=1.0.0",
+    "python-dotenv>=1.0.0",
+    "requests>=2.32.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/vjworthington/ElectronicVirtualAssistant"
+Repository = "https://github.com/vjworthington/ElectronicVirtualAssistant"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4",
+    "pytest-cov>=4.1",
+    "pytest-asyncio>=0.23",
+    "ruff>=0.4",
+    "black>=24.0",
+    "mypy>=1.8",
+    "towncrier>=23.0",
+]
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+select = ["E", "F", "I", "UP", "B", "C4", "PT", "T20"]
+ignore = ["E501"]
+
+[tool.black]
+line-length = 100
+target-version = ["py311"]
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_ignores = true
+disallow_untyped_defs = true
+strict = true
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_functions = ["test_*"]
+addopts = "--cov=eva --cov-report=term-missing --cov-report=xml"
+
+[project.scripts]
+eva = "eva.__main__:main"
+
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: X11 Applications :: Qt",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+keywords = ["ai", "assistant", "pyqt5", "openrouter", "desktop", "avatar"]
