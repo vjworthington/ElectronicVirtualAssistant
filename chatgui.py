@@ -1,6 +1,9 @@
 from PyQt5.QtCore import QAbstractListModel, QMargins, QPoint, QSize, Qt
 from PyQt5.QtGui import QColor, QFontMetrics
-from PyQt5.QtWidgets import *
+from PyQt5.QtWidgets import (
+    QApplication, QMainWindow, QVBoxLayout, QLineEdit,
+    QPushButton, QListView, QWidget, QStyledItemDelegate
+)
 from PyQt5 import QtGui
 import sys
 
