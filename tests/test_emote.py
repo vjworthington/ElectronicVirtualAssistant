@@ -1,15 +1,18 @@
 from emote import get_emote
+from paths import ANGRY_GIF, HAPPY_GIF, IDLE_GIF, SAD_GIF
 
 
-class TestEmoteClassification:
-    def test_happy_keywords(self):
-        assert get_emote("I'm so happy this works!") == "happy"
+def test_happy_keywords():
+    assert get_emote("I'm so happy this works!") == HAPPY_GIF
 
-    def test_sad_keywords(self):
-        assert get_emote("This is terrible and sad") == "sad"
 
-    def test_angry_keywords(self):
-        assert get_emote("I'm furious about this") == "angry"
+def test_sad_keywords():
+    assert get_emote("This is terrible and sad") == SAD_GIF
 
-    def test_neutral_fallback(self):
-        assert get_emote("The weather is okay") == "idle"
+
+def test_angry_keywords():
+    assert get_emote("I'm furious about this") == ANGRY_GIF
+
+
+def test_neutral_fallback():
+    assert get_emote("The weather is okay") == IDLE_GIF
