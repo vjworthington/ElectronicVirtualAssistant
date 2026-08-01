@@ -38,8 +38,11 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends \
-            libgl1-mesa-glx libegl1-mesa libxcb-cursor0 \
+            libgl1 \
+            libegl1 \
+            libxcb-cursor0 \
             xvfb
+
 
       - name: Install package with dev dependencies
         run: |
