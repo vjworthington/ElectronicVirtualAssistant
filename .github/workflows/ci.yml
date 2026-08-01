@@ -40,9 +40,7 @@ jobs:
           sudo apt-get install -y --no-install-recommends \
             libgl1 \
             libegl1 \
-            libxcb-cursor0 \
-            xvfb
-
+            libxcb-cursor0
 
       - name: Install package with dev dependencies
         run: |
@@ -59,10 +57,14 @@ jobs:
         run: mypy .
 
       # LINUX ONLY: Run tests under Xvfb
+      # USE QT_QPA_PLATFORM=offscreen
       - name: Run tests with coverage (Linux)
         if: runner.os == 'Linux'
+        env:
+          QT_QPA_PLATFORM: offscreen
         run: |
-          xvfb-run -a pytest --cov=eva --cov-report=term-missing --cov-report=xml
+          pytest --cov=eva --cov-report=term-missing --cov-report=xml
+
 
       # MACOS/WINDOWS: Run tests normally
       - name: Run tests with coverage (macOS/Windows)
