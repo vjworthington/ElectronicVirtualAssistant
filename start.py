@@ -43,6 +43,7 @@ client = None
 MODEL_NAME = None
 TOKENS = None
 
+
 def load_config():
     config = {}
 
@@ -58,6 +59,7 @@ def load_config():
 
     return config
 
+
 def initialize_client():
     global client, MODEL_NAME, TOKENS
 
@@ -70,7 +72,6 @@ def initialize_client():
         api_key=config["API_KEY"],
         base_url="https://openrouter.ai/api/v1",
     )
-
 
 
 def EVA(prompt):
@@ -238,7 +239,7 @@ class MainWindow(QMainWindow):
         self.movie = QMovie(BACKGROUND_GIF)
         self.label.setMovie(self.movie)
         self.movie.start()
-        #self.show()
+        # self.show()
 
 
 # Main
@@ -253,12 +254,11 @@ def main():
         return
 
     app = QtWidgets.QApplication(sys.argv)
-    #window = QtWidgets.QMainWindow()
+    # window = QtWidgets.QMainWindow()
     window = MainWindow()
     window.resize(645, 370)
     window.show()
     app.exec_()
-
 
 
 if __name__ == "__main__":
