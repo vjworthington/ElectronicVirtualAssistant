@@ -60,10 +60,18 @@ def load_config():
     return config
 
 
+# start.py — initialize_client()
 def initialize_client():
     global client, MODEL_NAME, TOKENS
 
-    config = load_config()
+    try:
+        config = load_config()
+    except FileNotFoundError:
+        logging.error("config.txt not found")
+        return
+    except Exception as e:
+        logging.error(f"Error loading API key: {e}")
+        return
 
     MODEL_NAME = config["MODEL"]
     TOKENS = int(config["TOKENS"])
