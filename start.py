@@ -39,41 +39,43 @@ bubble_colors = {USER_ME: user_color, USER_EVA: eva_color}
 bubble_padding = QMargins(15, 5, 15, 5)
 text_padding = QMargins(25, 15, 25, 15)
 
-try:
+client = None
+MODEL_NAME = None
+TOKENS = None
 
-    def load_config():
-        config = {}
+def load_config():
+    config = {}
 
-        with open("config.txt") as file:
-            for line in file:
-                line = line.strip()
+    with open("config.txt") as file:
+        for line in file:
+            line = line.strip()
 
-                if not line:
-                    continue
+            if not line:
+                continue
 
-                key, value = line.split("=", 1)
-                config[key.strip()] = value.strip()
+            key, value = line.split("=", 1)
+            config[key.strip()] = value.strip()
 
-        return config
+    return config
+
+def initialize_client():
+    global client, MODEL_NAME, TOKENS
 
     config = load_config()
 
-    API_KEY = config["API_KEY"]
     MODEL_NAME = config["MODEL"]
-    TOKENS = config["TOKENS"]
+    TOKENS = int(config["TOKENS"])
 
-    client = OpenAI(api_key=API_KEY, base_url="https://openrouter.ai/api/v1")
+    client = OpenAI(
+        api_key=config["API_KEY"],
+        base_url="https://openrouter.ai/api/v1",
+    )
 
-except FileNotFoundError:
-    logging.error("config.txt not found")
-    exit()
-
-except Exception as e:
-    logging.error("Error loading API key: ", e)
-    exit()
 
 
 def EVA(prompt):
+    if client is None:
+        return "Configuration error."
     try:
         response = client.chat.completions.create(
             model=MODEL_NAME,
@@ -236,17 +238,27 @@ class MainWindow(QMainWindow):
         self.movie = QMovie(BACKGROUND_GIF)
         self.label.setMovie(self.movie)
         self.movie.start()
-        self.show()
+        #self.show()
 
 
 # Main
 def main():
+    try:
+        initialize_client()
+    except FileNotFoundError:
+        logging.error("config.txt not found")
+        return
+    except Exception as e:
+        logging.error(f"Error loading API key: {e}")
+        return
+
     app = QtWidgets.QApplication(sys.argv)
-    window = QtWidgets.QMainWindow()
+    #window = QtWidgets.QMainWindow()
     window = MainWindow()
     window.resize(645, 370)
     window.show()
     app.exec_()
+
 
 
 if __name__ == "__main__":
