@@ -1,4 +1,3 @@
-# .github/workflows/ci.yml
 name: CI
 
 on:
@@ -24,7 +23,7 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # required for towncrier / version detection
+          fetch-depth: 0
 
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v5
@@ -32,6 +31,15 @@ jobs:
           python-version: ${{ matrix.python-version }}
           cache: pip
           cache-dependency-path: pyproject.toml
+
+      # LINUX ONLY: Install Qt dependencies + Xvfb
+      - name: Install Linux GUI dependencies
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            libgl1-mesa-glx libegl1-mesa libxcb-cursor0 \
+            xvfb
 
       - name: Install package with dev dependencies
         run: |
@@ -47,14 +55,23 @@ jobs:
       - name: Type check with Mypy
         run: mypy .
 
-      - name: Run tests with coverage
+      # LINUX ONLY: Run tests under Xvfb
+      - name: Run tests with coverage (Linux)
+        if: runner.os == 'Linux'
         run: |
-          pytest --cov=. --cov-report=term-missing --cov-report=xml
+          xvfb-run -a pytest --cov=eva --cov-report=term-missing --cov-report=xml
+
+      # MACOS/WINDOWS: Run tests normally
+      - name: Run tests with coverage (macOS/Windows)
+        if: runner.os != 'Linux'
+        run: |
+          pytest --cov=eva --cov-report=term-missing --cov-report=xml
 
       - name: Upload coverage to Codecov
         if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.11'
-        uses: codecov/codecov-action@v5
+        uses: codecov/codecov-action@v3
         with:
           files: ./coverage.xml
           flags: unittests
-          fail_ci_if_error: true
+          fail_ci_if_error: false
+
