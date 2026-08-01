@@ -116,7 +116,8 @@ class MainWindow(QMainWindow):
         self.model.add_message(USER_EVA, self.message_input.text())
 
 
-app = QApplication(sys.argv)
-window = MainWindow()
-window.show()
-app.exec_()
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    window = MainWindow()
+    window.show()
+    app.exec_()
