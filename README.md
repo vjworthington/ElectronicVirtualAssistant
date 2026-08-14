@@ -44,6 +44,16 @@ Electronic Virtual Assistant, EVA for short, is an interactive AI assistant that
 -	VTube Studio (Avatar)
 -	Testing
 
+### Testing
+- **pytest / pytest-cov** – Unit and integration testing with code coverage
+- **Ruff** – Code quality and linting
+- **mypy** – Static type checking
+- **GitHub Actions** – Automated CI testing
+- **Codecov** – Test coverage reporting
+
+Additional security and integration testing will be added as the project develops.
+
+
 ---
 
 ### Installation (Windows)
