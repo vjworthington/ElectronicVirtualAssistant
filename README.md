@@ -45,14 +45,24 @@ Electronic Virtual Assistant, EVA for short, is an interactive AI assistant that
 -	Testing
 
 ### Testing
+
 - **pytest / pytest-cov** – Unit and integration testing with code coverage
 - **Ruff** – Code quality and linting
 - **mypy** – Static type checking
 - **GitHub Actions** – Automated CI testing
 - **Codecov** – Test coverage reporting
 
-Additional security and integration testing will be added as the project develops.
+Additional testing and security analysis will be documented as the project develops.
 
+### Documentation
+
+The project documentation will be developed in the following order:
+
+- **Software Requirements Specification (SRS)** – Defines EVA's functional and non-functional requirements, system capabilities, constraints, and project scope.
+- **Software Design Document (SDD)** – Describes EVA's architecture, major components, interfaces, design decisions, and implementation structure.
+- **Coding and Testing Document (CT)** – Documents the testing process, test results, code quality analysis, security testing, issues discovered, resolutions, and final assessment.
+
+The documentation follows a structured progression from **requirements → design → implementation and testing**.
 
 ---
 
