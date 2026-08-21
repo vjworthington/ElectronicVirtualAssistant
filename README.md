@@ -43,6 +43,7 @@ Electronic Virtual Assistant, EVA for short, is an interactive AI assistant that
 -	Windows
 -	VTube Studio (Avatar)
 -	Testing
+-	Debugging (pdb)
 
 ### Testing
 
