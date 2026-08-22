@@ -7,10 +7,49 @@ def get_emote(response):
 
     # test keywords for each emotion, will change to more specific keywords later
     happy_keywords = ["happy", "excited", "glad", "pleased", "funny", "optomistic", "inspiring"]
-    sad_keywords = ["sad", "disappointed", "regret", "insecure", "shame", "gloomy", "depressed", "unhappy"]
-    angry_keywords = ["angry", "disgust", "dislike", "irritated", "frustrated", "irate", "outraged", "grumpy", "livid", "cranky"]
-    surprise_keywords = ["surprised", "shocked", "amazed", "astonished", "impressed", "speechless", "jolted"]
-    love_keywords = ["love", "adore", "cherish", "fond", "devoted", "infatuated", "longing" ,"enamored", "smitten", "irresistible"]
+    sad_keywords = [
+        "sad",
+        "disappointed",
+        "regret",
+        "insecure",
+        "shame",
+        "gloomy",
+        "depressed",
+        "unhappy",
+    ]
+    angry_keywords = [
+        "angry",
+        "disgust",
+        "dislike",
+        "irritated",
+        "frustrated",
+        "irate",
+        "outraged",
+        "grumpy",
+        "livid",
+        "cranky",
+    ]
+    surprise_keywords = [
+        "surprised",
+        "shocked",
+        "amazed",
+        "astonished",
+        "impressed",
+        "speechless",
+        "jolted",
+    ]
+    love_keywords = [
+        "love",
+        "adore",
+        "cherish",
+        "fond",
+        "devoted",
+        "infatuated",
+        "longing",
+        "enamored",
+        "smitten",
+        "irresistible",
+    ]
 
     if any(keyword in text for keyword in happy_keywords):
         return HAPPY_GIF
